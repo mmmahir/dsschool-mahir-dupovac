@@ -23,5 +23,15 @@ const MainStackNavigator = ({navigation}) => {
 
     )
 }
+const AboutStackNavigator = ({navigation}) => {
+    return(
+        <Stack.Navigator screenOptions={screenOptionsStyle}>
+                <Stack.Screen name="Home" component={Home} />
+                <Stack.Screen name="Abaout" component={Abaout} />
+                <Stack.Screen name="Contact" component={Contact} />
+        </Stack.Navigator>
 
-export default MainStackNavigator;
+    )
+}
+
+export {MainStackNavigator, AboutStackNavigator};
