@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "name":"Home",
+        "component":"BottomTabNavigator",
+        "icon":"home"
+    },
+    {
+        "id":2,
+        "name":"About",
+        "component":"AboutStackNavigator",
+        "icon":"video-stabilization"
+    },
+        {
+        "id":3,
+        "name":"Contact",
+        "component":"Contact",
+        "icon":"album"
+    },
+        {
+        "id":4,
+        "name":"Profile",
+        "component":"Profile",
+        "icon":"face-man-profile"
+    }
+]

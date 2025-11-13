@@ -7,7 +7,7 @@ const Home = ({navigation}) => {
             <Text>Welcome to home screen</Text>
             <Button title="Go to abaout" onPress={() => navigation.navigate("Abaout")}/>
             <Button title="Go to contact" onPress={() => navigation.navigate("Contact")}/>
-       
+            <Button title="Open drawer" onPress={() => navigation.openDrawer()}/>
         </View>
     )
 }
