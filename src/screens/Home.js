@@ -1,13 +1,64 @@
 import React from "react";
-import { View,Text,StyleSheet,Button } from "react-native";
+import { View,Text,StyleSheet,Button,Image } from "react-native";
+import Swiper from "react-native-swiper";
 
 const Home = ({navigation}) => {
     return(
         <View style={style.conainer}>
-            <Text>Welcome to home screen</Text>
-            <Button title="Go to abaout" onPress={() => navigation.navigate("Abaout")}/>
-            <Button title="Go to contact" onPress={() => navigation.navigate("Contact")}/>
-            <Button title="Open drawer" onPress={() => navigation.openDrawer()}/>
+            <View style={style.sliderContainer}>
+                <Swiper
+                    autoplay={true}
+                    activeDotColor="#22D4FF"
+                    autoplayTimeout={5}
+                >
+                    <View style={style.item}>
+                        <Image source={require("../../assets/banner1.jpg")} resizeMode="vover" style={style.imgItem} />
+                    </View>
+                    <View style={style.item}>
+                        <Image source={require("../../assets/banner2.jpg")} resizeMode="vover" style={style.imgItem} />
+                    </View>
+                    <View style={style.item}>
+                        <Image source={require("../../assets/banner3.jpg")} resizeMode="vover" style={style.imgItem} />
+                    </View>
+                </Swiper>
+            </View>
+
+
+            <View style={style.sliderContainer}>
+                <Swiper
+                    autoplay={true}
+                    activeDotColor="#ff222dff"
+                    autoplayTimeout={3}
+                    dotStyle={{
+                        borderRadius:0,
+                        width:5,
+                        height:5
+                    }}
+
+
+                    activeDotStyle={{
+                        borderRadius:0,
+                        width:10,
+                        height:10
+                    }}
+                >
+                    <View style={style.item}>
+                        <View style={style.comp1}>
+                            <Text>Slide 1</Text>
+                        </View>
+                    </View>
+                    <View style={style.item}>
+                        <View style={style.comp2}>
+                            <Text>Slide 2</Text>
+                        </View>
+                    </View>
+                    <View style={style.item}>
+                        <View style={style.comp3}>
+                            <Text>Slide 3</Text>
+                        </View>
+                    </View>
+                </Swiper>
+            </View>
         </View>
     )
 }
@@ -18,6 +69,47 @@ const style= StyleSheet.create({
         backgroundColor:"#fff",
         alignItems:"center",
         justifyContent:"center"
+    },
+    sliderContainer:{
+        width:"90%",
+        height:200,
+        justifyContent:"center",
+        alignItems:"center",
+        marginTop:10,
+        borderRadius:8
+    },
+    imgItem:{
+        width:"100%",
+        height:"100%",
+        borderRadius:8
+    },
+    item:{
+        flex:1,
+        justifyContent:"center"
+    },
+    comp1:{
+        width:"100%",
+        height:"100$",
+        flex:1,
+        justifyContent:"center",
+        alignItems:"center",
+        backgroundColor:"#c00"
+    },
+    comp2:{
+        width:"100%",
+        height:"100$",
+        flex:1,
+        justifyContent:"center",
+        alignItems:"center",
+        backgroundColor:"#0c0"
+    },
+    comp3:{
+        width:"100%",
+        height:"100$",
+        flex:1,
+        justifyContent:"center",
+        alignItems:"center",
+        backgroundColor:"#00c"
     }
 })
 
