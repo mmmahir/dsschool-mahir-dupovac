@@ -4,6 +4,7 @@ import BottomTabNavigator from "./TabNavigator";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Contact from "../screens/Contact";
 import Profile from "../screens/Profile";
+import IconHome from "../screens/IconHome";
 
 const Drawer = createDrawerNavigator();
 
@@ -17,7 +18,7 @@ const DrawerNavigator = () => {
             },
         
         }}>
-            <Drawer.Screen name="Home" component={BottomTabNavigator} options={{
+            <Drawer.Screen name="Home" component={IconHome} options={{
                 drawerIcon:(focused) => ( 
                 <MaterialCommunityIcons name={focused ? "home" : "home-outline"} size={26} color={"#000"}/>
             ),
