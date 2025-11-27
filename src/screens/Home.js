@@ -1,138 +1,161 @@
 import React from "react";
-import { View,Text,StyleSheet,Button,Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  FlatList,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import Swiper from "react-native-swiper";
 import Icon from "../components/Icon";
+import data from "../../data/products.json";
+import Item from "../components/Item";
 
-const Home = ({navigation}) => {
-    return(
-        <View style={style.conainer}>
-            <View style={style.sliderContainer}>
-                <Swiper
-                    autoplay={true}
-                    activeDotColor="#22D4FF"
-                    autoplayTimeout={5}
-                >
-                    <View style={style.item}>
-                        <Image source={require("../../assets/banner1.jpg")} resizeMode="vover" style={style.imgItem} />
-                    </View>
-                    <View style={style.item}>
-                        <Image source={require("../../assets/banner2.jpg")} resizeMode="vover" style={style.imgItem} />
-                    </View>
-                    <View style={style.item}>
-                        <Image source={require("../../assets/banner3.jpg")} resizeMode="vover" style={style.imgItem} />
-                    </View>
-                </Swiper>
-            </View>
+class Home extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      products: [],
+    };
+  }
 
+  componentDidMount() {
+    this.setState({
+      products: data,
+    });
+  }
 
-            <View style={style.sliderContainer}>
-                <Swiper
-                    autoplay={true}
-                    activeDotColor="#ff222dff"
-                    autoplayTimeout={3}
-                    dotStyle={{
-                        borderRadius:0,
-                        width:5,
-                        height:5
-                    }}
+  render() {
+    return (
+      <ScrollView>
+        <View style={styles.container}>
+          <View style={styles.sliderContainer}>
+            <Swiper
+              autoplay={true}
+              activeDotColor="rgba(34, 212, 255, 1)"
+              autoplayTimeout={5}
+            >
+              <View style={styles.item}>
+                <Image
+                  style={styles.imgItem}
+                  source={require("../../assets/banner_1.jpg")}
+                  resizeMode="cover"
+                />
+              </View>
+              <View style={styles.item}>
+                <Image
+                  style={styles.imgItem}
+                  source={require("../../assets/banner_2.png")}
+                  resizeMode="cover"
+                />
+              </View>
+              <View style={styles.item}>
+                <Image
+                  style={styles.imgItem}
+                  source={require("../../assets/banner_3.jpeg")}
+                  resizeMode="cover"
+                />
+              </View>
+              <View style={styles.item}>
+                <Image
+                  style={styles.imgItem}
+                  source={require("../../assets/banner_5.jpg")}
+                  resizeMode="cover"
+                />
+              </View>
+            </Swiper>
+          </View>
+          <View style={styles.iconsContainer}>
+            <Icon name="cellphone" iconText="Iphone"></Icon>
+            <Icon name="android" iconText="Samsung"></Icon>
+            <Icon name="laptop" iconText="Laptop"></Icon>
+          </View>
+          <View style={styles.iconsContainer}>
+            <Icon name="tablet" iconText="Tablet"></Icon>
+            <Icon name="mouse" iconText="Mouse"></Icon>
+            <Icon name="keyboard-outline" iconText="Keyboard"></Icon>
+          </View>
 
-
-                    activeDotStyle={{
-                        borderRadius:0,
-                        width:10,
-                        height:10
-                    }}
-                >
-                    <View style={style.item}>
-                        <View style={style.comp1}>
-                            <Text>Slide 1</Text>
-                        </View>
-                    </View>
-                    <View style={style.item}>
-                        <View style={style.comp2}>
-                            <Text>Slide 2</Text>
-                        </View>
-                    </View>
-                    <View style={style.item}>
-                        <View style={style.comp3}>
-                            <Text>Slide 3</Text>
-                        </View>
-                    </View>
-                </Swiper>
-            </View>
-
-
-
-
-            <View style={style.iconContainer}>
-                <Icon name="cellphone" iconText="Iphone" color="#3ff" size={27}></Icon>
-                <Icon name="android" iconText="Android" color="#3ff" size={27}></Icon>
-                <Icon name="laptop" iconText="Laptop" color="#3ff" size={27}></Icon>
-            </View>
-            <View style={style.iconContainer}>
-                <Icon name="tablet" iconText="Tablet" color="#3ff" size={27}></Icon>
-                <Icon name="mouse" iconText="Mouse" color="#3ff" size={27}></Icon>
-                <Icon name="keyboard-outline" iconText="Keyboard" color="#3ff" size={27}></Icon>
-            </View>
+          <View style={styles.productsContainer}>
+            <Text style={styles.title}>Most Popular Products</Text>
+            <FlatList
+              data={this.state.products.popularproducts}
+              renderItem={({ item }) => (
+                <View>
+                  <Item item={item} />
+                </View>
+              )}
+            />
+            <TouchableOpacity style={styles.btn}>
+              <Text style={styles.btnText}>View More</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-    )
+      </ScrollView>
+    );
+  }
 }
 
-const style= StyleSheet.create({
-    conainer:{
-        flex:1,
-        backgroundColor:"#fff",
-        alignItems:"center",
-        justifyContent:"center"
-    },
-    sliderContainer:{
-        width:"90%",
-        height:200,
-        justifyContent:"center",
-        alignItems:"center",
-        marginTop:10,
-        borderRadius:8
-    },
-    imgItem:{
-        width:"100%",
-        height:"100%",
-        borderRadius:8
-    },
-    item:{
-        flex:1,
-        justifyContent:"center"
-    },
-    comp1:{
-        width:"100%",
-        height:"100$",
-        flex:1,
-        justifyContent:"center",
-        alignItems:"center",
-        backgroundColor:"#c00"
-    },
-    comp2:{
-        width:"100%",
-        height:"100$",
-        flex:1,
-        justifyContent:"center",
-        alignItems:"center",
-        backgroundColor:"#0c0"
-    },
-    comp3:{
-        width:"100%",
-        height:"100$",
-        flex:1,
-        justifyContent:"center",
-        alignItems:"center",
-        backgroundColor:"#00c"
-    },
-    iconContainer:{
-        width:"90%",
-        alignSelf:"center",
-        marginTop:30,
-        flexDirection:"row",
-        justifyContent:"space-between"
-    }
-})
+const styles = StyleSheet.create({
+  iconsContainer: {
+    width: "90%",
+    alignSelf: "center",
+    marginTop: 30,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
 
-export default Home;
+  container: {
+    flex: 1,
+    width: "100%",
+    backgroundColor: "#fff",
+  },
+
+  sliderContainer: {
+    height: 200,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10,
+    borderRadius: 8,
+  },
+
+  imgItem: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 8,
+  },
+
+  item: {
+    flex: 1,
+    justifyContent: "center",
+  },
+
+  productsContainer: {
+    marginHorizontal: 20,
+  },
+
+  title: {
+    marginTop: 35,
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 16,
+  },
+
+  btn: {
+    backgroundColor: "#22D4FF",
+    height: 50,
+    borderRadius: 8,
+    justifyContent: "center",
+    marginBottom: 20,
+  },
+
+  btnText: {
+    color: "white",
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+});
+
+export default Home; 
