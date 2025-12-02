@@ -12,7 +12,7 @@ const componentName = ({item}) => (
             <Text>{item.category}</Text>
             <Text>{item.description}</Text>
             <Text>{item.price}</Text>
-            <Text>{item.previusPrice}</Text>
+            <Text>{item.rating}/5</Text>
         </View>
     </View>
 );

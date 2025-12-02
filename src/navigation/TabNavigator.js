@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { MainStackNavigator,AboutStackNavigator } from "./StackNavigator";
+import { MainStackNavigator,AboutStackNavigator, IosStackNavigator } from "./StackNavigator";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Profile from "../screens/Profile";
 
@@ -41,6 +41,14 @@ const BottomTabNavigator = () => {
             tabBarLabel:"Abaout",
             tabBarIcon:({color}) => (
                 <MaterialCommunityIcons name="face-man-profile" size={26} color={color} />
+            ),
+        }}
+        />
+        <Tab.Screen name="Ios" component={IosStackNavigator}
+        options={{
+            tabBarLabel:"Ios",
+            tabBarIcon:({color}) => (
+                <MaterialCommunityIcons name="video-stabilization" size={26} color={color} />
             ),
         }}
         />

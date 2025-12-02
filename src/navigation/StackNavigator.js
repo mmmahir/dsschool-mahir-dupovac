@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
 import Abaout from "../screens/Abaout";
 import Contact from "../screens/Contact";
+import IOS from "../screens/IOS";
 
 const Stack = createStackNavigator();
 
@@ -34,4 +35,12 @@ const AboutStackNavigator = ({navigation}) => {
     )
 }
 
-export {MainStackNavigator, AboutStackNavigator};
+const IosStackNavigator = () => {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="Ios" component={IOS} />
+        </Stack.Navigator>
+    )
+}
+
+export {MainStackNavigator, AboutStackNavigator,IosStackNavigator};

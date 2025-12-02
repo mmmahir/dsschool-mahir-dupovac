@@ -10,14 +10,16 @@ import {
 } from "react-native";
 import Swiper from "react-native-swiper";
 import Icon from "../components/Icon";
-import data from "../../data/products.json";
+import data from "../data/products.json";
 import Item from "../components/Item";
+import { IosStackNavigator } from "../navigation/StackNavigator";
 
 class Home extends React.Component {
   constructor() {
     super();
     this.state = {
       products: [],
+      
     };
   }
 
@@ -40,35 +42,34 @@ class Home extends React.Component {
               <View style={styles.item}>
                 <Image
                   style={styles.imgItem}
-                  source={require("../../assets/banner_1.jpg")}
+                  source={require("../../assets/banner1.jpg")}
                   resizeMode="cover"
                 />
               </View>
               <View style={styles.item}>
                 <Image
                   style={styles.imgItem}
-                  source={require("../../assets/banner_2.png")}
+                  source={require("../../assets/banner2.jpg")}
                   resizeMode="cover"
                 />
               </View>
               <View style={styles.item}>
                 <Image
                   style={styles.imgItem}
-                  source={require("../../assets/banner_3.jpeg")}
+                  source={require("../../assets/banner3.jpg")}
                   resizeMode="cover"
                 />
               </View>
-              <View style={styles.item}>
-                <Image
-                  style={styles.imgItem}
-                  source={require("../../assets/banner_5.jpg")}
-                  resizeMode="cover"
-                />
-              </View>
+
             </Swiper>
           </View>
           <View style={styles.iconsContainer}>
-            <Icon name="cellphone" iconText="Iphone"></Icon>
+            <TouchableOpacity
+            onPress={() => this.props.navigation.navigate(IosStackNavigator)}
+            >
+              <Icon name="cellphone" iconText="Iphone"></Icon>
+            </TouchableOpacity>
+            
             <Icon name="android" iconText="Samsung"></Icon>
             <Icon name="laptop" iconText="Laptop"></Icon>
           </View>
