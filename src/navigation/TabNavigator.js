@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { MainStackNavigator,AboutStackNavigator, IosStackNavigator } from "./StackNavigator";
+import { MainStackNavigator,AboutStackNavigator, IosStackNavigator, AndroidStackNavigator } from "./StackNavigator";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Profile from "../screens/Profile";
+import Android from "../screens/Android";
 
 
 
@@ -49,6 +50,14 @@ const BottomTabNavigator = () => {
             tabBarLabel:"Ios",
             tabBarIcon:({color}) => (
                 <MaterialCommunityIcons name="video-stabilization" size={26} color={color} />
+            ),
+        }}
+        />
+        <Tab.Screen name="Android" component={AndroidStackNavigator}
+        options={{
+            tabBarLabel:"Android",
+            tabBarIcon:({color}) => (
+                <MaterialCommunityIcons name="face-man-profile" size={26} color={color} />
             ),
         }}
         />

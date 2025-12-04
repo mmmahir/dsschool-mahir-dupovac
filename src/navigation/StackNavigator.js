@@ -4,6 +4,7 @@ import Home from "../screens/Home";
 import Abaout from "../screens/Abaout";
 import Contact from "../screens/Contact";
 import IOS from "../screens/IOS";
+import Android from "../screens/Android";
 
 const Stack = createStackNavigator();
 
@@ -43,4 +44,12 @@ const IosStackNavigator = () => {
     )
 }
 
-export {MainStackNavigator, AboutStackNavigator,IosStackNavigator};
+const AndroidStackNavigator = () => {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="Android" component={Android} />
+        </Stack.Navigator>
+    )
+}
+
+export {MainStackNavigator, AboutStackNavigator,IosStackNavigator,AndroidStackNavigator};
